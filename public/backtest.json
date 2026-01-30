@@ -1,0 +1,377 @@
+{
+  "universe": [
+    "SPY",
+    "QQQ",
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "GOOG",
+    "META",
+    "TSLA"
+  ],
+  "start": "2020-01-01",
+  "end": null,
+  "results": {
+    "SPY": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.3333333333333333,
+          "profit_factor": 2.572108477942557,
+          "sharpe": 1.093184711660152,
+          "max_drawdown": -0.20499871224716418,
+          "total_return": 1.157353220509688,
+          "trades": 12
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 2.0458611569697815,
+          "sharpe": -0.04635261196572612,
+          "max_drawdown": -0.2003891217286382,
+          "total_return": -0.060271957631996886,
+          "trades": 9
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.8736888220242665,
+        "max_drawdown": -0.10931824296383574,
+        "total_return": 0.36569375429256357,
+        "trades": 0
+      }
+    },
+    "QQQ": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.5714285714285714,
+          "profit_factor": 6.831465486448346,
+          "sharpe": 1.2007348620132394,
+          "max_drawdown": -0.1715398521168427,
+          "total_return": 2.1236126060385887,
+          "trades": 7
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.875,
+          "profit_factor": 84.53755189798339,
+          "sharpe": -0.26473947650267493,
+          "max_drawdown": -0.2510062744256931,
+          "total_return": -0.19032790441095682,
+          "trades": 8
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.9591996864073489,
+        "max_drawdown": -0.1059921989994253,
+        "total_return": 0.6444282338758773,
+        "trades": 0
+      }
+    },
+    "AAPL": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.4166666666666667,
+          "profit_factor": 1.9473263679829997,
+          "sharpe": 0.8687648263786103,
+          "max_drawdown": -0.21882927623314213,
+          "total_return": 1.8034169914498759,
+          "trades": 12
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.6153846153846154,
+          "profit_factor": 2.7522464016391166,
+          "sharpe": -0.22819405252827546,
+          "max_drawdown": -0.23191898073007308,
+          "total_return": -0.16777608261371835,
+          "trades": 13
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.6932308959784431,
+        "max_drawdown": -0.1277376524109558,
+        "total_return": 0.545213636278719,
+        "trades": 0
+      }
+    },
+    "MSFT": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.3333333333333333,
+          "profit_factor": 2.487747567214783,
+          "sharpe": 0.8450914180916901,
+          "max_drawdown": -0.24295353231668881,
+          "total_return": 1.537846414131983,
+          "trades": 12
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.625,
+          "profit_factor": 10.62757006733173,
+          "sharpe": 0.4719441835454295,
+          "max_drawdown": -0.09144220802860512,
+          "total_return": 0.18302838728925486,
+          "trades": 8
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.8512319143658424,
+        "max_drawdown": -0.11929533886540282,
+        "total_return": 0.5736249338070794,
+        "trades": 0
+      }
+    },
+    "NVDA": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.4444444444444444,
+          "profit_factor": 4.0070401928708765,
+          "sharpe": 1.4153608118313274,
+          "max_drawdown": -0.42640491817945747,
+          "total_return": 22.32186270433154,
+          "trades": 9
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.8,
+          "profit_factor": 36.15523454722437,
+          "sharpe": -0.10430677356814735,
+          "max_drawdown": -0.21025250668334294,
+          "total_return": -0.09921391162472681,
+          "trades": 5
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 1.315684474388679,
+        "max_drawdown": -0.30670905207555466,
+        "total_return": 7.407549597568938,
+        "trades": 0
+      }
+    },
+    "AMZN": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.35714285714285715,
+          "profit_factor": 1.5145343693487485,
+          "sharpe": 0.6538032238411294,
+          "max_drawdown": -0.3168802796034753,
+          "total_return": 1.2274602101674423,
+          "trades": 14
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.5454545454545454,
+          "profit_factor": 1.0712803346738262,
+          "sharpe": -0.48580599083518955,
+          "max_drawdown": -0.40639826224425923,
+          "total_return": -0.3367879220426828,
+          "trades": 11
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.41149786320809734,
+        "max_drawdown": -0.24053970285355253,
+        "total_return": 0.2968907627082531,
+        "trades": 0
+      }
+    },
+    "GOOG": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.2857142857142857,
+          "profit_factor": 3.359488513793663,
+          "sharpe": 1.254266985634514,
+          "max_drawdown": -0.2667696488379061,
+          "total_return": 3.9646917705769544,
+          "trades": 7
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.9090909090909091,
+          "profit_factor": 7.792220602336033,
+          "sharpe": -0.14120434130156923,
+          "max_drawdown": -0.16475406582934793,
+          "total_return": -0.11417749385786913,
+          "trades": 11
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 1.159546840475393,
+        "max_drawdown": -0.14743630624282586,
+        "total_return": 1.283504758906362,
+        "trades": 0
+      }
+    },
+    "META": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.42857142857142855,
+          "profit_factor": 12.471151824619657,
+          "sharpe": 1.1425814362676334,
+          "max_drawdown": -0.22076704964561353,
+          "total_return": 4.9306231830598515,
+          "trades": 7
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.5,
+          "profit_factor": 1.6881968880235423,
+          "sharpe": -0.1727120262290571,
+          "max_drawdown": -0.44880182083337716,
+          "total_return": -0.3318099976644694,
+          "trades": 20
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.9200807068212624,
+        "max_drawdown": -0.18326540775862799,
+        "total_return": 1.5329377284651273,
+        "trades": 0
+      }
+    },
+    "TSLA": {
+      "strategies": {
+        "trend": {
+          "name": "trend",
+          "win_rate": 0.35714285714285715,
+          "profit_factor": 1.2327385257806394,
+          "sharpe": 0.93924264313771,
+          "max_drawdown": -0.6062653853820688,
+          "total_return": 7.9049430801255856,
+          "trades": 14
+        },
+        "reversion": {
+          "name": "reversion",
+          "win_rate": 0.6363636363636364,
+          "profit_factor": 1.8922468681340636,
+          "sharpe": -0.0950019616697796,
+          "max_drawdown": -0.42009924199569515,
+          "total_return": -0.28348239197208724,
+          "trades": 22
+        },
+        "breakout": {
+          "name": "breakout",
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": 0
+        }
+      },
+      "ensemble": {
+        "name": "ensemble",
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.7454043974260989,
+        "max_drawdown": -0.39491408652318144,
+        "total_return": 2.5404868960511657,
+        "trades": 0
+      }
+    }
+  }
+}
