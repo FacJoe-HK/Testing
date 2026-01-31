@@ -1,0 +1,5 @@
+streamlit
+chromadb
+openai>=1.43.0
+python-dotenv
+pypdf
