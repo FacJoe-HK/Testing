@@ -6,6 +6,12 @@ function formatPct(n) {
   return `${(n * 100).toFixed(1)}%`
 }
 
+function formatPf(pf) {
+  if (pf === undefined || pf === null || Number.isNaN(pf)) return '—'
+  if (pf === Infinity) return '∞'
+  return pf.toFixed(2)
+}
+
 function StrategyCard({ ticker, data }) {
   const entries = Object.entries(data.strategies || {})
   const bestTrain = entries
@@ -34,11 +40,11 @@ function StrategyCard({ ticker, data }) {
           </div>
           <div>
             <p className="label">Train PF</p>
-            <p className="value">{bestTrain.profit_factor === Infinity ? '∞' : bestTrain.profit_factor.toFixed(2)}</p>
+            <p className="value">{formatPf(bestTrain.profit_factor)}</p>
           </div>
           <div>
             <p className="label">Train Sharpe</p>
-            <p className="value">{bestTrain.sharpe.toFixed(2)}</p>
+            <p className="value">{bestTrain.sharpe?.toFixed(2)}</p>
           </div>
           <div>
             <p className="label">Val win</p>
@@ -46,17 +52,11 @@ function StrategyCard({ ticker, data }) {
           </div>
           <div>
             <p className="label">Val PF</p>
-            <p className="value">
-              {bestTrain.validation
-                ? bestTrain.validation.profit_factor === Infinity
-                  ? '∞'
-                  : bestTrain.validation.profit_factor.toFixed(2)
-                : '—'}
-            </p>
+            <p className="value">{bestTrain.validation ? formatPf(bestTrain.validation.profit_factor) : '—'}</p>
           </div>
           <div>
             <p className="label">Val Sharpe</p>
-            <p className="value">{bestTrain.validation ? bestTrain.validation.sharpe.toFixed(2) : '—'}</p>
+            <p className="value">{bestTrain.validation ? bestTrain.validation.sharpe?.toFixed(2) : '—'}</p>
           </div>
         </div>
       )}
@@ -64,7 +64,7 @@ function StrategyCard({ ticker, data }) {
         <div className="mini-row">
           <span>Top win-rate (train)</span>
           <strong>
-            {topWin.strat}: {formatPct(topWin.win_rate)} PF {topWin.profit_factor === Infinity ? '∞' : topWin.profit_factor.toFixed(2)}
+            {topWin.strat}: {formatPct(topWin.win_rate)} PF {formatPf(topWin.profit_factor)}
           </strong>
         </div>
       )}
@@ -72,14 +72,39 @@ function StrategyCard({ ticker, data }) {
   )
 }
 
+function TableRow({ ticker, strat, train, validation }) {
+  return (
+    <div className="table-row">
+      <div className="cell ticker">{ticker}</div>
+      <div className="cell">{strat}</div>
+      <div className="cell">{formatPct(train?.win_rate)}</div>
+      <div className="cell">{formatPf(train?.profit_factor)}</div>
+      <div className="cell">{formatPct(train?.max_drawdown)}</div>
+      <div className="cell">{train?.trades ?? '—'}</div>
+      <div className="cell">{formatPct(validation?.win_rate)}</div>
+      <div className="cell">{formatPf(validation?.profit_factor)}</div>
+      <div className="cell">{formatPct(validation?.max_drawdown)}</div>
+      <div className="cell">{validation?.trades ?? '—'}</div>
+    </div>
+  )
+}
+
 function App() {
   const [bt, setBt] = useState(null)
+  const [lastFetch, setLastFetch] = useState(null)
 
-  useEffect(() => {
+  const load = () => {
     fetch('/backtest.json')
       .then((res) => res.json())
-      .then(setBt)
+      .then((data) => {
+        setBt(data)
+        setLastFetch(new Date())
+      })
       .catch(() => {})
+  }
+
+  useEffect(() => {
+    load()
   }, [])
 
   const offsetLabel = useMemo(() => {
@@ -90,6 +115,28 @@ function App() {
     }).formatToParts(now)
     return parts.find((p) => p.type === 'timeZoneName')?.value ?? ''
   }, [])
+
+  const topWinTrain = useMemo(() => {
+    if (!bt) return []
+    const rows = []
+    Object.entries(bt.results).forEach(([ticker, data]) => {
+      Object.entries(data.strategies || {}).forEach(([name, obj]) => {
+        if (obj.train) rows.push({ ticker, strat: name, ...obj.train })
+      })
+    })
+    return rows.sort((a, b) => b.win_rate - a.win_rate).slice(0, 5)
+  }, [bt])
+
+  const topWinVal = useMemo(() => {
+    if (!bt) return []
+    const rows = []
+    Object.entries(bt.results).forEach(([ticker, data]) => {
+      Object.entries(data.strategies || {}).forEach(([name, obj]) => {
+        if (obj.validation) rows.push({ ticker, strat: name, ...obj.validation })
+      })
+    })
+    return rows.sort((a, b) => b.win_rate - a.win_rate).slice(0, 5)
+  }, [bt])
 
   return (
     <div className="app-shell">
@@ -106,10 +153,23 @@ function App() {
           </div>
         </header>
 
+        <section className="card controls-card">
+          <div className="controls-row">
+            <div>
+              <p className="label">Data</p>
+              <p className="value">from backtest.json (train/validation split)</p>
+            </div>
+            <div className="controls-buttons">
+              <button className="pill" onClick={load}>Refresh data</button>
+              <p className="mini-sub">{lastFetch ? `Last fetch: ${lastFetch.toLocaleTimeString()}` : 'Not loaded'}</p>
+            </div>
+          </div>
+        </section>
+
         <section className="card metrics-card">
           <div className="metrics-header">
             <div>
-              <p className="eyebrow">Best Sharpe per ticker</p>
+              <p className="eyebrow">Per ticker</p>
               <h2>Top configs by ticker</h2>
             </div>
             {!bt && <p className="subtitle">Loading...</p>}
@@ -121,6 +181,99 @@ function App() {
               ))}
             </div>
           )}
+        </section>
+
+        <section className="card table-card">
+          <div className="metrics-header">
+            <div>
+              <p className="eyebrow">Top win-rate (train)</p>
+              <h2>Conservative focus</h2>
+            </div>
+          </div>
+          <div className="table">
+            <div className="table-row head">
+              <div className="cell ticker">Ticker</div>
+              <div className="cell">Strat</div>
+              <div className="cell">Train win</div>
+              <div className="cell">Train PF</div>
+              <div className="cell">Train DD</div>
+              <div className="cell">Trades</div>
+              <div className="cell">Val win</div>
+              <div className="cell">Val PF</div>
+              <div className="cell">Val DD</div>
+              <div className="cell">Trades</div>
+            </div>
+            {bt &&
+              Object.entries(bt.results).map(([ticker, data]) =>
+                Object.entries(data.strategies || {}).map(([name, obj]) => (
+                  <TableRow
+                    key={`${ticker}-${name}`}
+                    ticker={ticker}
+                    strat={name}
+                    train={obj.train}
+                    validation={obj.validation}
+                  />
+                ))
+              )}
+          </div>
+        </section>
+
+        <section className="card table-card">
+          <div className="metrics-header">
+            <div>
+              <p className="eyebrow">Top win-rate (train)</p>
+              <h2>Top 5 train</h2>
+            </div>
+          </div>
+          <div className="table">
+            <div className="table-row head">
+              <div className="cell ticker">Ticker</div>
+              <div className="cell">Strat</div>
+              <div className="cell">Win</div>
+              <div className="cell">PF</div>
+              <div className="cell">DD</div>
+              <div className="cell">Trades</div>
+            </div>
+            {topWinTrain.map((r) => (
+              <div className="table-row" key={`${r.ticker}-${r.strat}-train`}>
+                <div className="cell ticker">{r.ticker}</div>
+                <div className="cell">{r.strat}</div>
+                <div className="cell">{formatPct(r.win_rate)}</div>
+                <div className="cell">{formatPf(r.profit_factor)}</div>
+                <div className="cell">{formatPct(r.max_drawdown)}</div>
+                <div className="cell">{r.trades ?? '—'}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="card table-card">
+          <div className="metrics-header">
+            <div>
+              <p className="eyebrow">Top win-rate (validation)</p>
+              <h2>Top 5 validation</h2>
+            </div>
+          </div>
+          <div className="table">
+            <div className="table-row head">
+              <div className="cell ticker">Ticker</div>
+              <div className="cell">Strat</div>
+              <div className="cell">Win</div>
+              <div className="cell">PF</div>
+              <div className="cell">DD</div>
+              <div className="cell">Trades</div>
+            </div>
+            {topWinVal.map((r) => (
+              <div className="table-row" key={`${r.ticker}-${r.strat}-val`}>
+                <div className="cell ticker">{r.ticker}</div>
+                <div className="cell">{r.strat}</div>
+                <div className="cell">{formatPct(r.win_rate)}</div>
+                <div className="cell">{formatPf(r.profit_factor)}</div>
+                <div className="cell">{formatPct(r.max_drawdown)}</div>
+                <div className="cell">{r.trades ?? '—'}</div>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
     </div>

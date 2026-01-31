@@ -235,6 +235,24 @@
   flex-wrap: wrap;
 }
 
+.controls-card {
+  margin-top: 16px;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.controls-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .mini-grid-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -274,6 +292,43 @@
   gap: 8px 12px;
 }
 
+.table-card {
+  margin-top: 16px;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr repeat(8, 0.8fr);
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table-row.head {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+}
+
+.cell {
+  color: #e9ecf5;
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cell.ticker {
+  font-weight: 700;
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
@@ -285,5 +340,14 @@
 
   .layout {
     padding: 48px 18px 64px;
+  }
+
+  .table-row {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  .table-row.head {
+    display: none;
   }
 }
