@@ -9,17 +9,21 @@ from dotenv import load_dotenv
 from openai import AzureOpenAI
 from pypdf import PdfReader
 
-# Load environment
+# Load environment (optional)
 load_dotenv()
 
-# Defaults from env (optional)
-DEFAULT_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "")
-DEFAULT_KEY = os.getenv("AZURE_OPENAI_KEY", "")
-DEFAULT_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-12-01-preview")
-DEFAULT_CHAT_DEPLOY = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", "gpt-5.1")
-DEFAULT_EMBED_DEPLOY = os.getenv("AZURE_OPENAI_EMBED_DEPLOYMENT", "text-embedding-3-large")
+HARDCODE_ENDPOINT = "https://jpedaoipocaoa07.cognitiveservices.azure.com/"
+HARDCODE_CHAT = "gpt-5.1"
+HARDCODE_EMBED = "text-embedding-3-large"
+HARDCODE_API_VERSION = "2024-12-01-preview"
 
-# Session config helpers
+DEFAULT_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", HARDCODE_ENDPOINT)
+DEFAULT_KEY = os.getenv("AZURE_OPENAI_KEY", "")
+DEFAULT_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", HARDCODE_API_VERSION)
+DEFAULT_CHAT_DEPLOY = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", HARDCODE_CHAT)
+DEFAULT_EMBED_DEPLOY = os.getenv("AZURE_OPENAI_EMBED_DEPLOYMENT", HARDCODE_EMBED)
+
+# Session config
 if "cfg" not in st.session_state:
     st.session_state.cfg = {
         "endpoint": DEFAULT_ENDPOINT,
