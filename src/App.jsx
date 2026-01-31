@@ -7,7 +7,15 @@ function formatPct(n) {
 }
 
 function StrategyCard({ ticker, data }) {
-  const best = Object.values(data.strategies).sort((a, b) => b.sharpe - a.sharpe)[0]
+  const entries = Object.entries(data.strategies || {})
+  const bestTrain = entries
+    .map(([name, obj]) => ({ name, ...obj.train, validation: obj.validation }))
+    .sort((a, b) => b.sharpe - a.sharpe)[0]
+
+  const topWin = entries
+    .flatMap(([name, obj]) => (data.top_candidates?.[name] || []).map((c) => ({ ...c, strat: name })))
+    .sort((a, b) => b.win_rate - a.win_rate)[0]
+
   return (
     <div className="mini-card">
       <div className="mini-header">
@@ -15,35 +23,49 @@ function StrategyCard({ ticker, data }) {
         <p className="mini-sub">Ensemble Sharpe {data.ensemble?.sharpe?.toFixed(2) ?? '—'}</p>
       </div>
       <div className="mini-row">
-        <span>Best Sharpe</span>
-        <strong>{best?.name ?? '—'}</strong>
+        <span>Best Sharpe (train)</span>
+        <strong>{bestTrain?.name ?? '—'}</strong>
       </div>
-      {best && (
+      {bestTrain && (
         <div className="mini-grid">
           <div>
-            <p className="label">Win rate</p>
-            <p className="value">{formatPct(best.win_rate)}</p>
+            <p className="label">Train win</p>
+            <p className="value">{formatPct(bestTrain.win_rate)}</p>
           </div>
           <div>
-            <p className="label">Profit factor</p>
-            <p className="value">{best.profit_factor === Infinity ? '∞' : best.profit_factor.toFixed(2)}</p>
+            <p className="label">Train PF</p>
+            <p className="value">{bestTrain.profit_factor === Infinity ? '∞' : bestTrain.profit_factor.toFixed(2)}</p>
           </div>
           <div>
-            <p className="label">Sharpe</p>
-            <p className="value">{best.sharpe.toFixed(2)}</p>
+            <p className="label">Train Sharpe</p>
+            <p className="value">{bestTrain.sharpe.toFixed(2)}</p>
           </div>
           <div>
-            <p className="label">Max DD</p>
-            <p className="value">{formatPct(best.max_drawdown)}</p>
+            <p className="label">Val win</p>
+            <p className="value">{bestTrain.validation ? formatPct(bestTrain.validation.win_rate) : '—'}</p>
           </div>
           <div>
-            <p className="label">Total return</p>
-            <p className="value">{formatPct(best.total_return)}</p>
+            <p className="label">Val PF</p>
+            <p className="value">
+              {bestTrain.validation
+                ? bestTrain.validation.profit_factor === Infinity
+                  ? '∞'
+                  : bestTrain.validation.profit_factor.toFixed(2)
+                : '—'}
+            </p>
           </div>
           <div>
-            <p className="label">Trades</p>
-            <p className="value">{best.trades}</p>
+            <p className="label">Val Sharpe</p>
+            <p className="value">{bestTrain.validation ? bestTrain.validation.sharpe.toFixed(2) : '—'}</p>
           </div>
+        </div>
+      )}
+      {topWin && (
+        <div className="mini-row">
+          <span>Top win-rate (train)</span>
+          <strong>
+            {topWin.strat}: {formatPct(topWin.win_rate)} PF {topWin.profit_factor === Infinity ? '∞' : topWin.profit_factor.toFixed(2)}
+          </strong>
         </div>
       )}
     </div>

@@ -264,7 +264,19 @@ def bollinger_reversion(df: pd.DataFrame, length=20, num_std=2.0, exit_mid=True,
     return returns, equity, trades
 
 
-def sweep_strategy(df: pd.DataFrame, name: str) -> Tuple[StrategyResult, List[StrategyResult]]:
+def run_strategy(df: pd.DataFrame, name: str, params: Dict):
+    if name == "trend":
+        return dual_ma_with_atr_stop(df, **params)
+    if name == "reversion":
+        return rsi_reversion(df, length=params["length"], lower=params["lower"], upper=params["upper"], hold_days=params["hold"])
+    if name == "breakout":
+        return donchian_breakout(df, lookback=params["lookback"], trail=params["trail"])
+    if name == "bollinger":
+        return bollinger_reversion(df, length=params["length"], num_std=params["std"], exit_mid=params["exit_mid"], time_stop=params["time_stop"])
+    raise ValueError("unknown strategy")
+
+
+def sweep_strategy(df_train: pd.DataFrame, df_val: pd.DataFrame, name: str) -> Tuple[StrategyResult, List[StrategyResult], StrategyResult]:
     candidates: List[StrategyResult] = []
     if name == "trend":
         grid = [
@@ -277,7 +289,7 @@ def sweep_strategy(df: pd.DataFrame, name: str) -> Tuple[StrategyResult, List[St
         ]
         random.shuffle(grid)
         for (fast, slow, atr_len, atr_mult) in grid:
-            r, e, t = dual_ma_with_atr_stop(df, fast=fast, slow=slow, atr_len=atr_len, atr_mult=atr_mult)
+            r, e, t = dual_ma_with_atr_stop(df_train, fast=fast, slow=slow, atr_len=atr_len, atr_mult=atr_mult)
             res = summarize_strategy("trend", {"fast": fast, "slow": slow, "atr_len": atr_len, "atr_mult": atr_mult}, r, e, t)
             candidates.append(res)
     elif name == "reversion":
@@ -290,7 +302,7 @@ def sweep_strategy(df: pd.DataFrame, name: str) -> Tuple[StrategyResult, List[St
         ]
         random.shuffle(grid)
         for (length, lower, upper, hold) in grid:
-            r, e, t = rsi_reversion(df, length=length, lower=lower, upper=upper, hold_days=hold)
+            r, e, t = rsi_reversion(df_train, length=length, lower=lower, upper=upper, hold_days=hold)
             res = summarize_strategy("reversion", {"length": length, "lower": lower, "upper": upper, "hold": hold}, r, e, t)
             candidates.append(res)
     elif name == "breakout":
@@ -301,7 +313,7 @@ def sweep_strategy(df: pd.DataFrame, name: str) -> Tuple[StrategyResult, List[St
         ]
         random.shuffle(grid)
         for (lookback, trail) in grid:
-            r, e, t = donchian_breakout(df, lookback=lookback, trail=trail)
+            r, e, t = donchian_breakout(df_train, lookback=lookback, trail=trail)
             res = summarize_strategy("breakout", {"lookback": lookback, "trail": trail}, r, e, t)
             candidates.append(res)
     elif name == "bollinger":
@@ -314,11 +326,15 @@ def sweep_strategy(df: pd.DataFrame, name: str) -> Tuple[StrategyResult, List[St
         ]
         random.shuffle(grid)
         for (length, std, exit_mid, time_stop) in grid:
-            r, e, t = bollinger_reversion(df, length=length, num_std=std, exit_mid=exit_mid, time_stop=time_stop)
+            r, e, t = bollinger_reversion(df_train, length=length, num_std=std, exit_mid=exit_mid, time_stop=time_stop)
             res = summarize_strategy("bollinger", {"length": length, "std": std, "exit_mid": exit_mid, "time_stop": time_stop}, r, e, t)
             candidates.append(res)
     best = sorted(candidates, key=lambda x: (x.win_rate, x.profit_factor, -x.max_drawdown), reverse=True)[0] if candidates else None
-    return best, candidates
+    val_res = None
+    if best and df_val is not None and len(df_val) > 20:
+        r, e, t = run_strategy(df_val, name, best.params)
+        val_res = summarize_strategy(f"{name}_val", best.params, r, e, t)
+    return best, candidates, val_res
 
 
 def run():
@@ -339,29 +355,30 @@ def run():
                 elif hasattr(series, "values") and len(series.values.shape) > 1:
                     df[col] = series.squeeze()
 
+        split_idx = int(len(df) * 0.7)
+        df_train = df.iloc[:split_idx]
+        df_val = df.iloc[split_idx:] if split_idx < len(df) else None
+
         strat_outputs = {}
         all_candidates = {}
 
         for strat in ["trend", "reversion", "breakout", "bollinger"]:
-            best, candidates = sweep_strategy(df, strat)
+            best, candidates, val_res = sweep_strategy(df_train, df_val, strat)
             if best:
-                strat_outputs[strat] = vars(best)
+                strat_outputs[strat] = {
+                    "train": vars(best),
+                    "validation": vars(val_res) if val_res else None,
+                }
                 all_candidates[strat] = [vars(c) for c in sorted(candidates, key=lambda x: x.win_rate, reverse=True)[:5]]
 
-        # ensemble via equal weight of best equities
+        # ensemble via equal weight of best equities on validation if available else train
         equities = []
         for strat in ["trend", "reversion", "breakout", "bollinger"]:
             if strat not in strat_outputs:
                 continue
-            params = strat_outputs[strat]["params"]
-            if strat == "trend":
-                _, e, _ = dual_ma_with_atr_stop(df, **params)
-            elif strat == "reversion":
-                _, e, _ = rsi_reversion(df, length=params["length"], lower=params["lower"], upper=params["upper"], hold_days=params["hold"])
-            elif strat == "breakout":
-                _, e, _ = donchian_breakout(df, lookback=params["lookback"], trail=params["trail"])
-            else:
-                _, e, _ = bollinger_reversion(df, length=params["length"], num_std=params["std"], exit_mid=params["exit_mid"], time_stop=params["time_stop"])
+            params = strat_outputs[strat]["train"]["params"]
+            target_df = df_val if df_val is not None and len(df_val) > 20 else df_train
+            _, e, _ = run_strategy(target_df, strat, params)
             equities.append(e)
 
         if equities:
