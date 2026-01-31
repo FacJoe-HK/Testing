@@ -17,39 +17,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.3333333333333333,
-          "profit_factor": 2.572108477942557,
-          "sharpe": 1.093184711660152,
-          "max_drawdown": -0.20499871224716418,
-          "total_return": 1.157353220509688,
-          "trades": 12
+          "params": {
+            "fast": 10,
+            "slow": 50,
+            "atr_len": 10,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.4375,
+          "profit_factor": 3.3190261914873616,
+          "sharpe": 1.4228733673669323,
+          "max_drawdown": -0.10010715074777109,
+          "total_return": 1.7580051634813576,
+          "trades": 16
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.6666666666666666,
-          "profit_factor": 2.0458611569697815,
-          "sharpe": -0.04635261196572612,
-          "max_drawdown": -0.2003891217286382,
-          "total_return": -0.060271957631996886,
-          "trades": 9
+          "params": {
+            "length": 10,
+            "lower": 20,
+            "upper": 60,
+            "hold": 5
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": -0.11139732845851019,
+          "max_drawdown": -0.10705533953152623,
+          "total_return": -0.05239650640679372,
+          "trades": 3
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 55,
+            "trail": 10
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 20,
+            "std": 2.5,
+            "exit_mid": true,
+            "time_stop": 7
+          },
+          "win_rate": 0.7692307692307693,
+          "profit_factor": 2.6110502391643413,
+          "sharpe": -0.41522303499360735,
+          "max_drawdown": -0.2528196263842094,
+          "total_return": -0.19644387995430312,
+          "trades": 13
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.4375,
+            "profit_factor": 3.3190261914873616,
+            "sharpe": 1.4228733673669323,
+            "max_drawdown": -0.10010715074777109,
+            "total_return": 1.7580051634813576,
+            "trades": 16
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.4375,
+            "profit_factor": 3.3190261914873616,
+            "sharpe": 1.4228733673669323,
+            "max_drawdown": -0.10010715074777109,
+            "total_return": 1.7580051634813576,
+            "trades": 16
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.4375,
+            "profit_factor": 3.3190261914873616,
+            "sharpe": 1.4228733673669323,
+            "max_drawdown": -0.10010715074777109,
+            "total_return": 1.7580051634813576,
+            "trades": 16
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.4375,
+            "profit_factor": 3.3190261914873616,
+            "sharpe": 1.4228733673669323,
+            "max_drawdown": -0.10010715074777109,
+            "total_return": 1.7580051634813576,
+            "trades": 16
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 20,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.4375,
+            "profit_factor": 3.3190261914873616,
+            "sharpe": 1.4228733673669323,
+            "max_drawdown": -0.10010715074777109,
+            "total_return": 1.7580051634813576,
+            "trades": 16
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.12311799639642343,
+            "max_drawdown": -0.0749395230858459,
+            "total_return": 0.03598159794329181,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.11139732845851019,
+            "max_drawdown": -0.10705533953152623,
+            "total_return": -0.05239650640679372,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 20,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.03826246058215641,
+            "max_drawdown": -0.04892450799072401,
+            "total_return": 0.004366264597558844,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.11139732845851019,
+            "max_drawdown": -0.10705533953152623,
+            "total_return": -0.05239650640679372,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.12311799639642343,
+            "max_drawdown": -0.0749395230858459,
+            "total_return": 0.03598159794329181,
+            "trades": 3
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 7
+            },
+            "win_rate": 0.7692307692307693,
+            "profit_factor": 2.5556997307162557,
+            "sharpe": -0.1762667959263623,
+            "max_drawdown": -0.2022702639356832,
+            "total_return": -0.10198647121779059,
+            "trades": 13
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.7692307692307693,
+            "profit_factor": 2.6110502391643413,
+            "sharpe": -0.41522303499360735,
+            "max_drawdown": -0.2528196263842094,
+            "total_return": -0.19644387995430312,
+            "trades": 13
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.75,
+            "profit_factor": 3.944595290190371,
+            "sharpe": -0.7594534450307786,
+            "max_drawdown": -0.4727554280862478,
+            "total_return": -0.4349787912619729,
+            "trades": 20
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.0,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.717948717948718,
+            "profit_factor": 1.7669787720601766,
+            "sharpe": -1.4695650333288668,
+            "max_drawdown": -0.6791816310348968,
+            "total_return": -0.6736656445012674,
+            "trades": 39
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.0,
+              "exit_mid": false,
+              "time_stop": 7
+            },
+            "win_rate": 0.7096774193548387,
+            "profit_factor": 2.246220835268625,
+            "sharpe": -0.39097452347605305,
+            "max_drawdown": -0.3721395955830954,
+            "total_return": -0.3066628357726666,
+            "trades": 31
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.8736888220242665,
-        "max_drawdown": -0.10931824296383574,
-        "total_return": 0.36569375429256357,
+        "sharpe": 1.0352887163583349,
+        "max_drawdown": -0.05961535153492359,
+        "total_return": 0.37729119428006497,
         "trades": 0
       }
     },
@@ -57,39 +389,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.5714285714285714,
-          "profit_factor": 6.831465486448346,
-          "sharpe": 1.2007348620132394,
-          "max_drawdown": -0.1715398521168427,
-          "total_return": 2.1236126060385887,
-          "trades": 7
+          "params": {
+            "fast": 20,
+            "slow": 150,
+            "atr_len": 20,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.75,
+          "profit_factor": 22.832543853726545,
+          "sharpe": 1.2079686396479161,
+          "max_drawdown": -0.19391709326758852,
+          "total_return": 2.1133991671085868,
+          "trades": 4
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.875,
-          "profit_factor": 84.53755189798339,
-          "sharpe": -0.26473947650267493,
-          "max_drawdown": -0.2510062744256931,
-          "total_return": -0.19032790441095682,
-          "trades": 8
+          "params": {
+            "length": 14,
+            "lower": 25,
+            "upper": 65,
+            "hold": 7
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.13214624657630214,
+          "max_drawdown": -0.11420728957150876,
+          "total_return": 0.0399595800268171,
+          "trades": 2
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 20,
+            "trail": 10
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 10,
+            "std": 2.5,
+            "exit_mid": false,
+            "time_stop": 5
+          },
+          "win_rate": 0.7777777777777778,
+          "profit_factor": 4.3841352378000735,
+          "sharpe": -0.8803969252307713,
+          "max_drawdown": -0.28933406959548535,
+          "total_return": -0.26468849719350085,
+          "trades": 9
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.75,
+            "profit_factor": 22.832543853726545,
+            "sharpe": 1.2079686396479161,
+            "max_drawdown": -0.19391709326758852,
+            "total_return": 2.1133991671085868,
+            "trades": 4
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 27.583802422011154,
+            "sharpe": 1.1496156322893287,
+            "max_drawdown": -0.19391709326758813,
+            "total_return": 1.9574993724407372,
+            "trades": 3
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 27.583802422011154,
+            "sharpe": 1.1496156322893287,
+            "max_drawdown": -0.19391709326758813,
+            "total_return": 1.9574993724407372,
+            "trades": 3
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 14,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.6,
+            "profit_factor": 11.093535595522704,
+            "sharpe": 1.2226663259886537,
+            "max_drawdown": -0.18651408666378488,
+            "total_return": 2.157745860840406,
+            "trades": 5
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 20,
+              "atr_mult": 2.0
+            },
+            "win_rate": 0.6,
+            "profit_factor": 11.093535595522704,
+            "sharpe": 1.2226663259886537,
+            "max_drawdown": -0.18651408666378488,
+            "total_return": 2.157745860840406,
+            "trades": 5
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.3287186180555723,
+            "max_drawdown": -0.04253217707320941,
+            "total_return": 0.10954951842392013,
+            "trades": 2
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 60,
+              "hold": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.2805016134591329,
+            "max_drawdown": -0.046824052748343614,
+            "total_return": 0.09343469931565607,
+            "trades": 2
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.3241919889486483,
+            "max_drawdown": -0.07677622141949833,
+            "total_return": -0.05887950540957543,
+            "trades": 2
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.3287186180555723,
+            "max_drawdown": -0.04253217707320941,
+            "total_return": 0.10954951842392013,
+            "trades": 2
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.15766169144521813,
+            "max_drawdown": -0.07677622141949837,
+            "total_return": 0.048611543056759965,
+            "trades": 2
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.7777777777777778,
+            "profit_factor": 4.3841352378000735,
+            "sharpe": -0.8803969252307713,
+            "max_drawdown": -0.28933406959548535,
+            "total_return": -0.26468849719350085,
+            "trades": 9
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.7777777777777778,
+            "profit_factor": 3.1077670070076966,
+            "sharpe": -1.003462341780226,
+            "max_drawdown": -0.30566878490104965,
+            "total_return": -0.29116690195712225,
+            "trades": 9
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.0,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.6857142857142857,
+            "profit_factor": 3.4232334307412495,
+            "sharpe": -1.4010953426783523,
+            "max_drawdown": -0.6877228396949429,
+            "total_return": -0.6771442693723462,
+            "trades": 35
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 1.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.660377358490566,
+            "profit_factor": 1.5580280235127866,
+            "sharpe": -1.1483915825634474,
+            "max_drawdown": -0.6985546044950905,
+            "total_return": -0.6754142949282426,
+            "trades": 53
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 1.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.660377358490566,
+            "profit_factor": 1.7727544225043266,
+            "sharpe": -0.8886632522530056,
+            "max_drawdown": -0.629849492844999,
+            "total_return": -0.5954981196330971,
+            "trades": 53
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.9591996864073489,
-        "max_drawdown": -0.1059921989994253,
-        "total_return": 0.6444282338758773,
+        "sharpe": 0.940100852583258,
+        "max_drawdown": -0.09375231293902574,
+        "total_return": 0.47216756248547576,
         "trades": 0
       }
     },
@@ -97,39 +761,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.4166666666666667,
-          "profit_factor": 1.9473263679829997,
-          "sharpe": 0.8687648263786103,
-          "max_drawdown": -0.21882927623314213,
-          "total_return": 1.8034169914498759,
-          "trades": 12
+          "params": {
+            "fast": 20,
+            "slow": 200,
+            "atr_len": 20,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 6.712943048953888,
+          "sharpe": 0.8075838296587271,
+          "max_drawdown": -0.3020055786429693,
+          "total_return": 1.6851401773070829,
+          "trades": 6
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.6153846153846154,
-          "profit_factor": 2.7522464016391166,
-          "sharpe": -0.22819405252827546,
-          "max_drawdown": -0.23191898073007308,
-          "total_return": -0.16777608261371835,
-          "trades": 13
+          "params": {
+            "length": 14,
+            "lower": 25,
+            "upper": 65,
+            "hold": 3
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.009070863636071408,
+          "max_drawdown": -0.11660818952373675,
+          "total_return": -0.009821213306845378,
+          "trades": 3
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 20,
+            "trail": 10
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 10,
+            "std": 2.0,
+            "exit_mid": true,
+            "time_stop": 5
+          },
+          "win_rate": 0.5909090909090909,
+          "profit_factor": 1.2786702259428522,
+          "sharpe": -1.6058255775662238,
+          "max_drawdown": -0.8275846513972315,
+          "total_return": -0.8266481457686063,
+          "trades": 44
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 6.712943048953888,
+            "sharpe": 0.8075838296587271,
+            "max_drawdown": -0.3020055786429693,
+            "total_return": 1.6851401773070829,
+            "trades": 6
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 6.712943048953888,
+            "sharpe": 0.8075838296587271,
+            "max_drawdown": -0.3020055786429693,
+            "total_return": 1.6851401773070829,
+            "trades": 6
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 20,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 6.712943048953888,
+            "sharpe": 0.8075838296587271,
+            "max_drawdown": -0.3020055786429693,
+            "total_return": 1.6851401773070829,
+            "trades": 6
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 6.712943048953888,
+            "sharpe": 0.8075838296587271,
+            "max_drawdown": -0.3020055786429693,
+            "total_return": 1.6851401773070829,
+            "trades": 6
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 200,
+              "atr_len": 14,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.6,
+            "profit_factor": 9.271905872537308,
+            "sharpe": 0.9127720844088223,
+            "max_drawdown": -0.21277895235871286,
+            "total_return": 2.0822232514156465,
+            "trades": 5
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.1470029439335947,
+            "max_drawdown": -0.10547433048374288,
+            "total_return": 0.052449658050952364,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 20,
+              "upper": 70,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.324612107974984,
+            "max_drawdown": -0.03455563680678142,
+            "total_return": -0.028098433491492547,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 20,
+              "upper": 70,
+              "hold": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.039988173899990175,
+            "max_drawdown": -0.03455563680678142,
+            "total_return": 0.003561240036225044,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 20,
+              "upper": 60,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.324612107974984,
+            "max_drawdown": -0.03455563680678142,
+            "total_return": -0.028098433491492547,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 20,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.005195910660477247,
+            "max_drawdown": -0.03455563680678142,
+            "total_return": -0.0004695930722841135,
+            "trades": 1
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.0,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.5909090909090909,
+            "profit_factor": 1.2786702259428522,
+            "sharpe": -1.6058255775662238,
+            "max_drawdown": -0.8275846513972315,
+            "total_return": -0.8266481457686063,
+            "trades": 44
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.0,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.5806451612903226,
+            "profit_factor": 1.8907845909366106,
+            "sharpe": -0.8452743791908758,
+            "max_drawdown": -0.6787579756861819,
+            "total_return": -0.6243200504480997,
+            "trades": 31
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.0,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.5806451612903226,
+            "profit_factor": 1.6949520341511992,
+            "sharpe": -1.0083483361950267,
+            "max_drawdown": -0.6999788408222265,
+            "total_return": -0.6764208685827895,
+            "trades": 31
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 1.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.5757575757575758,
+            "profit_factor": 1.0319372567100855,
+            "sharpe": -1.9885126490116307,
+            "max_drawdown": -0.9298813805895942,
+            "total_return": -0.9295005184315472,
+            "trades": 66
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 1.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.5681818181818182,
+            "profit_factor": 1.2346056431634276,
+            "sharpe": -1.1525832995707057,
+            "max_drawdown": -0.7921353799342439,
+            "total_return": -0.77804091877008,
+            "trades": 44
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.6932308959784431,
-        "max_drawdown": -0.1277376524109558,
-        "total_return": 0.545213636278719,
+        "sharpe": 0.3405695113287819,
+        "max_drawdown": -0.19194900972088327,
+        "total_return": 0.2121677045579078,
         "trades": 0
       }
     },
@@ -137,39 +1133,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.3333333333333333,
-          "profit_factor": 2.487747567214783,
-          "sharpe": 0.8450914180916901,
-          "max_drawdown": -0.24295353231668881,
-          "total_return": 1.537846414131983,
-          "trades": 12
+          "params": {
+            "fast": 10,
+            "slow": 50,
+            "atr_len": 10,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.45454545454545453,
+          "profit_factor": 2.0770335069674335,
+          "sharpe": 1.037896377912868,
+          "max_drawdown": -0.21268634836153505,
+          "total_return": 2.1777395835488838,
+          "trades": 22
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.625,
-          "profit_factor": 10.62757006733173,
-          "sharpe": 0.4719441835454295,
-          "max_drawdown": -0.09144220802860512,
-          "total_return": 0.18302838728925486,
-          "trades": 8
+          "params": {
+            "length": 14,
+            "lower": 25,
+            "upper": 60,
+            "hold": 3
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": -0.2848813812690018,
+          "max_drawdown": -0.032656774076379014,
+          "total_return": -0.02462714677020683,
+          "trades": 1
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 10,
+            "trail": 12
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 14,
+            "std": 2.5,
+            "exit_mid": false,
+            "time_stop": 5
+          },
+          "win_rate": 0.8333333333333334,
+          "profit_factor": 7.552093688747933,
+          "sharpe": -0.29741354049149,
+          "max_drawdown": -0.3021521800406448,
+          "total_return": -0.24923781715191629,
+          "trades": 12
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.45454545454545453,
+            "profit_factor": 2.042022555372431,
+            "sharpe": 1.0251156025580117,
+            "max_drawdown": -0.21379993391817403,
+            "total_return": 2.1303161542297495,
+            "trades": 22
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.45454545454545453,
+            "profit_factor": 2.0713876386353833,
+            "sharpe": 1.0367426395908075,
+            "max_drawdown": -0.21379993391817376,
+            "total_return": 2.173244951840623,
+            "trades": 22
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 50,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.45454545454545453,
+            "profit_factor": 2.0770335069674335,
+            "sharpe": 1.037896377912868,
+            "max_drawdown": -0.21268634836153505,
+            "total_return": 2.1777395835488838,
+            "trades": 22
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.42857142857142855,
+            "profit_factor": 4.312183617716715,
+            "sharpe": 0.8281194895248768,
+            "max_drawdown": -0.295381366202794,
+            "total_return": 1.556115462806913,
+            "trades": 7
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.42857142857142855,
+            "profit_factor": 4.101986831855842,
+            "sharpe": 0.8262749325105816,
+            "max_drawdown": -0.2970517800082929,
+            "total_return": 1.550055772709718,
+            "trades": 7
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.2848813812690018,
+            "max_drawdown": -0.032656774076379014,
+            "total_return": -0.02462714677020683,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 65,
+              "hold": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.14059125846325154,
+            "max_drawdown": -0.032656774076379014,
+            "total_return": 0.013513431842222756,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 65,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.2848813812690018,
+            "max_drawdown": -0.032656774076379014,
+            "total_return": -0.02462714677020683,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.05849866084357645,
+            "max_drawdown": -0.032656774076379014,
+            "total_return": -0.00604647072768405,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.14059125846325154,
+            "max_drawdown": -0.032656774076379014,
+            "total_return": 0.013513431842222756,
+            "trades": 1
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.8333333333333334,
+            "profit_factor": 6.861210612530739,
+            "sharpe": -0.6279423980818354,
+            "max_drawdown": -0.3892974400685162,
+            "total_return": -0.3892974400685162,
+            "trades": 12
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.8333333333333334,
+            "profit_factor": 6.046035376997895,
+            "sharpe": -0.8251212030079802,
+            "max_drawdown": -0.25280651397023646,
+            "total_return": -0.24386262518384838,
+            "trades": 6
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.8333333333333334,
+            "profit_factor": 7.552093688747933,
+            "sharpe": -0.29741354049149,
+            "max_drawdown": -0.3021521800406448,
+            "total_return": -0.24923781715191629,
+            "trades": 12
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.8333333333333334,
+            "profit_factor": 5.238656544391781,
+            "sharpe": -0.8219995935369138,
+            "max_drawdown": -0.25280651397023646,
+            "total_return": -0.24449474029980967,
+            "trades": 6
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.0,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 1.871728615426606,
+            "sharpe": -1.3626768368484075,
+            "max_drawdown": -0.7501502798970033,
+            "total_return": -0.7461952892188504,
+            "trades": 39
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.8512319143658424,
-        "max_drawdown": -0.11929533886540282,
-        "total_return": 0.5736249338070794,
+        "sharpe": 0.7608057767083949,
+        "max_drawdown": -0.1348050846815674,
+        "total_return": 0.47596865490669016,
         "trades": 0
       }
     },
@@ -177,39 +1505,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.4444444444444444,
-          "profit_factor": 4.0070401928708765,
-          "sharpe": 1.4153608118313274,
-          "max_drawdown": -0.42640491817945747,
-          "total_return": 22.32186270433154,
-          "trades": 9
+          "params": {
+            "fast": 5,
+            "slow": 100,
+            "atr_len": 10,
+            "atr_mult": 2.0
+          },
+          "win_rate": 0.5454545454545454,
+          "profit_factor": 7.414042952074538,
+          "sharpe": 1.6361304110793604,
+          "max_drawdown": -0.30840163611420596,
+          "total_return": 37.24200558022887,
+          "trades": 11
         },
         "reversion": {
           "name": "reversion",
+          "params": {
+            "length": 14,
+            "lower": 30,
+            "upper": 65,
+            "hold": 5
+          },
           "win_rate": 0.8,
-          "profit_factor": 36.15523454722437,
-          "sharpe": -0.10430677356814735,
-          "max_drawdown": -0.21025250668334294,
-          "total_return": -0.09921391162472681,
+          "profit_factor": 36.155748529138094,
+          "sharpe": -0.10430685487754833,
+          "max_drawdown": -0.2102525683402542,
+          "total_return": -0.09921398195060727,
           "trades": 5
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 30,
+            "trail": 8
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 20,
+            "std": 2.5,
+            "exit_mid": true,
+            "time_stop": 7
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": -0.6016516346453336,
+          "max_drawdown": -0.4376208610561595,
+          "total_return": -0.4162399409934341,
+          "trades": 12
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 5,
+              "slow": 100,
+              "atr_len": 14,
+              "atr_mult": 2.0
+            },
+            "win_rate": 0.5454545454545454,
+            "profit_factor": 7.035917184376912,
+            "sharpe": 1.6328552594710875,
+            "max_drawdown": -0.31404044087096555,
+            "total_return": 36.93020726745923,
+            "trades": 11
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 5,
+              "slow": 100,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.5454545454545454,
+            "profit_factor": 7.035917184376912,
+            "sharpe": 1.6328552594710875,
+            "max_drawdown": -0.31404044087096555,
+            "total_return": 36.93020726745923,
+            "trades": 11
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 5,
+              "slow": 100,
+              "atr_len": 20,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.5454545454545454,
+            "profit_factor": 7.035917184376912,
+            "sharpe": 1.6328552594710875,
+            "max_drawdown": -0.31404044087096555,
+            "total_return": 36.93020726745923,
+            "trades": 11
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 5,
+              "slow": 100,
+              "atr_len": 10,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.5454545454545454,
+            "profit_factor": 7.035917184376912,
+            "sharpe": 1.6328552594710875,
+            "max_drawdown": -0.31404044087096555,
+            "total_return": 36.93020726745923,
+            "trades": 11
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 5,
+              "slow": 100,
+              "atr_len": 14,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.5454545454545454,
+            "profit_factor": 7.035917184376912,
+            "sharpe": 1.6328552594710875,
+            "max_drawdown": -0.31404044087096555,
+            "total_return": 36.93020726745923,
+            "trades": 11
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 30,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 0.8,
+            "profit_factor": 36.155748529138094,
+            "sharpe": -0.10430685487754833,
+            "max_drawdown": -0.2102525683402542,
+            "total_return": -0.09921398195060727,
+            "trades": 5
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 30,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 0.8,
+            "profit_factor": 36.155748529138094,
+            "sharpe": -0.10430685487754833,
+            "max_drawdown": -0.2102525683402542,
+            "total_return": -0.09921398195060727,
+            "trades": 5
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 30,
+              "upper": 70,
+              "hold": 7
+            },
+            "win_rate": 0.8,
+            "profit_factor": 25.457308483287427,
+            "sharpe": 0.209035820609275,
+            "max_drawdown": -0.17329175721359993,
+            "total_return": 0.11839718134996113,
+            "trades": 5
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 30,
+              "upper": 65,
+              "hold": 7
+            },
+            "win_rate": 0.8,
+            "profit_factor": 25.457308483287427,
+            "sharpe": 0.209035820609275,
+            "max_drawdown": -0.17329175721359993,
+            "total_return": 0.11839718134996113,
+            "trades": 5
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 30,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 0.8,
+            "profit_factor": 36.155748529138094,
+            "sharpe": -0.10430685487754833,
+            "max_drawdown": -0.2102525683402542,
+            "total_return": -0.09921398195060727,
+            "trades": 5
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.038840835185661,
+            "max_drawdown": -0.11609814528286543,
+            "total_return": -0.02665638331754161,
+            "trades": 4
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.13286966454010374,
+            "max_drawdown": -0.10004599571343753,
+            "total_return": -0.05878981763762314,
+            "trades": 4
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.13286966454010374,
+            "max_drawdown": -0.10004599571343753,
+            "total_return": -0.05878981763762314,
+            "trades": 4
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.17837911791691632,
+            "max_drawdown": -0.10515446615082312,
+            "total_return": -0.06939436033831148,
+            "trades": 4
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.6016516346453336,
+            "max_drawdown": -0.4376208610561595,
+            "total_return": -0.4162399409934341,
+            "trades": 12
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 1.315684474388679,
-        "max_drawdown": -0.30670905207555466,
-        "total_return": 7.407549597568938,
+        "sharpe": 1.4355386541345057,
+        "max_drawdown": -0.2377327068173445,
+        "total_return": 9.181637914321207,
         "trades": 0
       }
     },
@@ -217,39 +1877,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.35714285714285715,
-          "profit_factor": 1.5145343693487485,
-          "sharpe": 0.6538032238411294,
-          "max_drawdown": -0.3168802796034753,
-          "total_return": 1.2274602101674423,
-          "trades": 14
+          "params": {
+            "fast": 20,
+            "slow": 200,
+            "atr_len": 10,
+            "atr_mult": 2.5
+          },
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 8.519306495802773,
+          "sharpe": 0.8266689219456231,
+          "max_drawdown": -0.21585017988839872,
+          "total_return": 1.9207400522294518,
+          "trades": 3
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.5454545454545454,
-          "profit_factor": 1.0712803346738262,
-          "sharpe": -0.48580599083518955,
-          "max_drawdown": -0.40639826224425923,
-          "total_return": -0.3367879220426828,
-          "trades": 11
+          "params": {
+            "length": 10,
+            "lower": 20,
+            "upper": 65,
+            "hold": 5
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": -0.5173815167225939,
+          "max_drawdown": -0.15472712767872077,
+          "total_return": -0.15196769067755245,
+          "trades": 3
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 20,
+            "trail": 12
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 10,
+            "std": 2.5,
+            "exit_mid": true,
+            "time_stop": 7
+          },
+          "win_rate": 0.7142857142857143,
+          "profit_factor": 12.132721019011981,
+          "sharpe": -0.849098201834166,
+          "max_drawdown": -0.35124025508474876,
+          "total_return": -0.3425206442955846,
+          "trades": 7
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 10,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 8.519306495802773,
+            "sharpe": 0.8266689219456231,
+            "max_drawdown": -0.21585017988839872,
+            "total_return": 1.9207400522294518,
+            "trades": 3
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 8.519306495802773,
+            "sharpe": 0.8266689219456231,
+            "max_drawdown": -0.21585017988839872,
+            "total_return": 1.9207400522294518,
+            "trades": 3
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 8.519306495802773,
+            "sharpe": 0.8266689219456231,
+            "max_drawdown": -0.21585017988839872,
+            "total_return": 1.9207400522294518,
+            "trades": 3
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 150,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.5,
+            "profit_factor": 3.447237057099147,
+            "sharpe": 0.770192762616222,
+            "max_drawdown": -0.2861192306369655,
+            "total_return": 1.684519114081123,
+            "trades": 8
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 20,
+              "atr_mult": 1.5
+            },
+            "win_rate": 0.5,
+            "profit_factor": 8.533631939681518,
+            "sharpe": 0.8608007652770188,
+            "max_drawdown": -0.21585017988839883,
+            "total_return": 2.068443461251576,
+            "trades": 4
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.5173815167225939,
+            "max_drawdown": -0.15472712767872077,
+            "total_return": -0.15196769067755245,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.5173815167225939,
+            "max_drawdown": -0.15472712767872077,
+            "total_return": -0.15196769067755245,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.5173815167225939,
+            "max_drawdown": -0.15472712767872077,
+            "total_return": -0.15196769067755245,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.5173815167225939,
+            "max_drawdown": -0.15472712767872077,
+            "total_return": -0.15196769067755245,
+            "trades": 3
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.5173815167225939,
+            "max_drawdown": -0.15472712767872077,
+            "total_return": -0.15196769067755245,
+            "trades": 3
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.7142857142857143,
+            "profit_factor": 12.132721019011981,
+            "sharpe": -0.849098201834166,
+            "max_drawdown": -0.35124025508474876,
+            "total_return": -0.3425206442955846,
+            "trades": 7
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 3
+            },
+            "win_rate": 0.7142857142857143,
+            "profit_factor": 2.779697801339402,
+            "sharpe": -1.11969316552426,
+            "max_drawdown": -0.5774668684003649,
+            "total_return": -0.5774668684003649,
+            "trades": 14
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 3
+            },
+            "win_rate": 0.7142857142857143,
+            "profit_factor": 2.779697801339402,
+            "sharpe": -1.11969316552426,
+            "max_drawdown": -0.5774668684003649,
+            "total_return": -0.5774668684003649,
+            "trades": 14
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.6428571428571429,
+            "profit_factor": 2.8072119076024733,
+            "sharpe": -0.9152492313506018,
+            "max_drawdown": -0.5645266434734925,
+            "total_return": -0.5505496153970542,
+            "trades": 14
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.6428571428571429,
+            "profit_factor": 2.864313697802546,
+            "sharpe": -0.5635768674237435,
+            "max_drawdown": -0.4981409003030107,
+            "total_return": -0.43310465712023083,
+            "trades": 14
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.41149786320809734,
-        "max_drawdown": -0.24053970285355253,
-        "total_return": 0.2968907627082531,
+        "sharpe": 0.5149040476868784,
+        "max_drawdown": -0.11859213026265138,
+        "total_return": 0.35656292931407885,
         "trades": 0
       }
     },
@@ -257,39 +2249,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.2857142857142857,
-          "profit_factor": 3.359488513793663,
-          "sharpe": 1.254266985634514,
-          "max_drawdown": -0.2667696488379061,
-          "total_return": 3.9646917705769544,
-          "trades": 7
+          "params": {
+            "fast": 20,
+            "slow": 50,
+            "atr_len": 20,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.5454545454545454,
+          "profit_factor": 3.028382117811196,
+          "sharpe": 1.3218840890198704,
+          "max_drawdown": -0.2356910127929299,
+          "total_return": 4.442078129909161,
+          "trades": 11
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.9090909090909091,
-          "profit_factor": 7.792220602336033,
-          "sharpe": -0.14120434130156923,
-          "max_drawdown": -0.16475406582934793,
-          "total_return": -0.11417749385786913,
-          "trades": 11
+          "params": {
+            "length": 10,
+            "lower": 25,
+            "upper": 65,
+            "hold": 5
+          },
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": -0.4131446740822335,
+          "max_drawdown": -0.14970100462452696,
+          "total_return": -0.12978711293752987,
+          "trades": 6
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 55,
+            "trail": 12
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 20,
+            "std": 2.5,
+            "exit_mid": false,
+            "time_stop": 3
+          },
+          "win_rate": 0.8333333333333334,
+          "profit_factor": 6.724214385668239,
+          "sharpe": -1.077226641718719,
+          "max_drawdown": -0.41511996543351504,
+          "total_return": -0.41511996543351504,
+          "trades": 12
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.5454545454545454,
+            "profit_factor": 3.028382117811196,
+            "sharpe": 1.3218840890198704,
+            "max_drawdown": -0.2356910127929299,
+            "total_return": 4.442078129909161,
+            "trades": 11
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 200,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.5,
+            "profit_factor": 3.8250640755672687,
+            "sharpe": 1.2817008228702236,
+            "max_drawdown": -0.23711812642921898,
+            "total_return": 4.428319825682903,
+            "trades": 6
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 20,
+              "atr_mult": 2.0
+            },
+            "win_rate": 0.5,
+            "profit_factor": 3.3728998902455203,
+            "sharpe": 1.3790030368915194,
+            "max_drawdown": -0.21307892603939146,
+            "total_return": 4.828904859918644,
+            "trades": 14
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.5,
+            "profit_factor": 3.2565794523509113,
+            "sharpe": 1.3109042925596217,
+            "max_drawdown": -0.2461662442261447,
+            "total_return": 4.367491766484653,
+            "trades": 12
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 2.0
+            },
+            "win_rate": 0.5,
+            "profit_factor": 3.3433081653656913,
+            "sharpe": 1.4216940463915204,
+            "max_drawdown": -0.1798966604052838,
+            "total_return": 5.156602298033085,
+            "trades": 14
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 60,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.16750229037619188,
+            "max_drawdown": -0.05389823307907693,
+            "total_return": 0.03588045082476565,
+            "trades": 2
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 70,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.10750322093851102,
+            "max_drawdown": -0.02789325901655737,
+            "total_return": -0.009595476845933093,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 25,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.4131446740822335,
+            "max_drawdown": -0.14970100462452696,
+            "total_return": -0.12978711293752987,
+            "trades": 6
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 7
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": 0.4407486277919919,
+            "max_drawdown": -0.02789325901655737,
+            "total_return": 0.05757745988599172,
+            "trades": 1
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 60,
+              "hold": 3
+            },
+            "win_rate": 1.0,
+            "profit_factor": Infinity,
+            "sharpe": -0.05193578501755066,
+            "max_drawdown": -0.05389823307907693,
+            "total_return": -0.01248875475001232,
+            "trades": 2
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 3
+            },
+            "win_rate": 0.8333333333333334,
+            "profit_factor": 6.724214385668239,
+            "sharpe": -1.077226641718719,
+            "max_drawdown": -0.41511996543351504,
+            "total_return": -0.41511996543351504,
+            "trades": 12
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 3
+            },
+            "win_rate": 0.8333333333333334,
+            "profit_factor": 6.724214385668239,
+            "sharpe": -1.077226641718719,
+            "max_drawdown": -0.41511996543351504,
+            "total_return": -0.41511996543351504,
+            "trades": 12
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.8,
+            "profit_factor": 3.7512136958238194,
+            "sharpe": -0.7507466095789282,
+            "max_drawdown": -0.3170726899394992,
+            "total_return": -0.2866679460091842,
+            "trades": 10
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.8,
+            "profit_factor": 4.083544952092359,
+            "sharpe": -0.625906748701746,
+            "max_drawdown": -0.3036808719972435,
+            "total_return": -0.2505597489832374,
+            "trades": 10
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.75,
+            "profit_factor": 2.4465001569749187,
+            "sharpe": -0.8794852829491703,
+            "max_drawdown": -0.36209789554493654,
+            "total_return": -0.34104068748966754,
+            "trades": 8
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 1.159546840475393,
-        "max_drawdown": -0.14743630624282586,
-        "total_return": 1.283504758906362,
+        "sharpe": 1.088831056800233,
+        "max_drawdown": -0.13062509921782928,
+        "total_return": 0.974292762884529,
         "trades": 0
       }
     },
@@ -297,39 +2621,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.42857142857142855,
-          "profit_factor": 12.471151824619657,
-          "sharpe": 1.1425814362676334,
-          "max_drawdown": -0.22076704964561353,
-          "total_return": 4.9306231830598515,
-          "trades": 7
+          "params": {
+            "fast": 10,
+            "slow": 200,
+            "atr_len": 20,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.6,
+          "profit_factor": 15.404125822004728,
+          "sharpe": 1.0137743610935412,
+          "max_drawdown": -0.29305207950287443,
+          "total_return": 3.745204086069256,
+          "trades": 5
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.5,
-          "profit_factor": 1.6881968880235423,
-          "sharpe": -0.1727120262290571,
-          "max_drawdown": -0.44880182083337716,
-          "total_return": -0.3318099976644694,
-          "trades": 20
+          "params": {
+            "length": 10,
+            "lower": 20,
+            "upper": 65,
+            "hold": 3
+          },
+          "win_rate": 0.75,
+          "profit_factor": 6.840233996450309,
+          "sharpe": -0.04726864200901334,
+          "max_drawdown": -0.0713231793998047,
+          "total_return": -0.01648552327990238,
+          "trades": 4
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 20,
+            "trail": 8
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 20,
+            "std": 1.5,
+            "exit_mid": true,
+            "time_stop": 7
+          },
+          "win_rate": 0.6538461538461539,
+          "profit_factor": 1.6694330061847151,
+          "sharpe": -1.4971387190458896,
+          "max_drawdown": -0.9341818872603684,
+          "total_return": -0.9332187774661268,
+          "trades": 52
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 200,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6,
+            "profit_factor": 15.404125822004728,
+            "sharpe": 1.0137743610935412,
+            "max_drawdown": -0.29305207950287443,
+            "total_return": 3.745204086069256,
+            "trades": 5
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 2.0
+            },
+            "win_rate": 0.6,
+            "profit_factor": 6.238054111185428,
+            "sharpe": 1.3408742092052763,
+            "max_drawdown": -0.22486774241793722,
+            "total_return": 6.9368275996792015,
+            "trades": 10
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 200,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.6,
+            "profit_factor": 15.404125822004728,
+            "sharpe": 1.0137743610935412,
+            "max_drawdown": -0.29305207950287443,
+            "total_return": 3.745204086069256,
+            "trades": 5
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 200,
+              "atr_len": 20,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.6,
+            "profit_factor": 15.404125822004728,
+            "sharpe": 1.0137743610935412,
+            "max_drawdown": -0.29305207950287443,
+            "total_return": 3.745204086069256,
+            "trades": 5
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 2.5
+            },
+            "win_rate": 0.5555555555555556,
+            "profit_factor": 6.594770903177507,
+            "sharpe": 1.317838627641608,
+            "max_drawdown": -0.22486774241793683,
+            "total_return": 6.648188797264528,
+            "trades": 9
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 65,
+              "hold": 3
+            },
+            "win_rate": 0.75,
+            "profit_factor": 6.840233996450309,
+            "sharpe": -0.04726864200901334,
+            "max_drawdown": -0.0713231793998047,
+            "total_return": -0.01648552327990238,
+            "trades": 4
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 70,
+              "hold": 3
+            },
+            "win_rate": 0.75,
+            "profit_factor": 6.840233996450309,
+            "sharpe": -0.04726864200901334,
+            "max_drawdown": -0.0713231793998047,
+            "total_return": -0.01648552327990238,
+            "trades": 4
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 10,
+              "lower": 20,
+              "upper": 60,
+              "hold": 3
+            },
+            "win_rate": 0.75,
+            "profit_factor": 6.840233996450309,
+            "sharpe": -0.04726864200901334,
+            "max_drawdown": -0.0713231793998047,
+            "total_return": -0.01648552327990238,
+            "trades": 4
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 7,
+              "lower": 30,
+              "upper": 60,
+              "hold": 7
+            },
+            "win_rate": 0.6,
+            "profit_factor": 1.318515046569465,
+            "sharpe": -1.070556393221389,
+            "max_drawdown": -0.8751388869069957,
+            "total_return": -0.8638910493351011,
+            "trades": 40
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 7,
+              "lower": 30,
+              "upper": 65,
+              "hold": 7
+            },
+            "win_rate": 0.6,
+            "profit_factor": 1.3910249330965394,
+            "sharpe": -0.9820979355532317,
+            "max_drawdown": -0.8588755378107603,
+            "total_return": -0.8443079717539287,
+            "trades": 40
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 20,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 1.5,
+              "exit_mid": false,
+              "time_stop": 7
+            },
+            "win_rate": 0.6538461538461539,
+            "profit_factor": 1.5548686567343333,
+            "sharpe": -1.013856769787576,
+            "max_drawdown": -0.87189680204068,
+            "total_return": -0.8700222808869609,
+            "trades": 52
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 1.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.6538461538461539,
+            "profit_factor": 1.6694330061847151,
+            "sharpe": -1.4971387190458896,
+            "max_drawdown": -0.9341818872603684,
+            "total_return": -0.9332187774661268,
+            "trades": 52
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 20,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.6111111111111112,
+            "profit_factor": 2.027097272554611,
+            "sharpe": -1.1240862446695965,
+            "max_drawdown": -0.8090781027230626,
+            "total_return": -0.8030207798301431,
+            "trades": 18
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.0,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.6052631578947368,
+            "profit_factor": 1.1148529741066477,
+            "sharpe": -1.9145434237529262,
+            "max_drawdown": -0.9529806498815412,
+            "total_return": -0.9522926204815323,
+            "trades": 38
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.6,
+            "profit_factor": 2.2843170994277386,
+            "sharpe": -1.2374767651716223,
+            "max_drawdown": -0.8010846080396984,
+            "total_return": -0.7981738992051827,
+            "trades": 15
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.9200807068212624,
-        "max_drawdown": -0.18326540775862799,
-        "total_return": 1.5329377284651273,
+        "sharpe": 0.6183083644703135,
+        "max_drawdown": -0.23207798613558273,
+        "total_return": 0.6988749463308066,
         "trades": 0
       }
     },
@@ -337,39 +2993,371 @@
       "strategies": {
         "trend": {
           "name": "trend",
-          "win_rate": 0.35714285714285715,
-          "profit_factor": 1.2327385257806394,
-          "sharpe": 0.93924264313771,
-          "max_drawdown": -0.6062653853820688,
-          "total_return": 7.9049430801255856,
-          "trades": 14
+          "params": {
+            "fast": 20,
+            "slow": 50,
+            "atr_len": 10,
+            "atr_mult": 3.0
+          },
+          "win_rate": 0.46153846153846156,
+          "profit_factor": 2.322455942667182,
+          "sharpe": 1.0734920787268227,
+          "max_drawdown": -0.5587749078743778,
+          "total_return": 11.676247349829842,
+          "trades": 13
         },
         "reversion": {
           "name": "reversion",
-          "win_rate": 0.6363636363636364,
-          "profit_factor": 1.8922468681340636,
-          "sharpe": -0.0950019616697796,
-          "max_drawdown": -0.42009924199569515,
-          "total_return": -0.28348239197208724,
-          "trades": 22
+          "params": {
+            "length": 14,
+            "lower": 25,
+            "upper": 65,
+            "hold": 3
+          },
+          "win_rate": 0.8888888888888888,
+          "profit_factor": 6.164594144895988,
+          "sharpe": -0.3187089090195977,
+          "max_drawdown": -0.4251891789460558,
+          "total_return": -0.35098995120467247,
+          "trades": 9
         },
         "breakout": {
           "name": "breakout",
+          "params": {
+            "lookback": 10,
+            "trail": 5
+          },
           "win_rate": 0.0,
           "profit_factor": 0.0,
           "sharpe": 0.0,
           "max_drawdown": 0.0,
           "total_return": 0.0,
           "trades": 0
+        },
+        "bollinger": {
+          "name": "bollinger",
+          "params": {
+            "length": 14,
+            "std": 2.5,
+            "exit_mid": false,
+            "time_stop": 5
+          },
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 4.360519220276139,
+          "sharpe": -0.765921175950005,
+          "max_drawdown": -0.5604327263098952,
+          "total_return": -0.5271488019967769,
+          "trades": 9
         }
+      },
+      "top_candidates": {
+        "trend": [
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.46153846153846156,
+            "profit_factor": 2.322455942667182,
+            "sharpe": 1.0734920787268227,
+            "max_drawdown": -0.5587749078743778,
+            "total_return": 11.676247349829842,
+            "trades": 13
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 20,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.46153846153846156,
+            "profit_factor": 2.322455942667182,
+            "sharpe": 1.0734920787268227,
+            "max_drawdown": -0.5587749078743778,
+            "total_return": 11.676247349829842,
+            "trades": 13
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 20,
+              "slow": 50,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.46153846153846156,
+            "profit_factor": 2.322455942667182,
+            "sharpe": 1.0734920787268227,
+            "max_drawdown": -0.5587749078743778,
+            "total_return": 11.676247349829842,
+            "trades": 13
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 150,
+              "atr_len": 10,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.4444444444444444,
+            "profit_factor": 2.34039096466727,
+            "sharpe": 1.0433629404664984,
+            "max_drawdown": -0.5310762576064628,
+            "total_return": 11.437107798549164,
+            "trades": 9
+          },
+          {
+            "name": "trend",
+            "params": {
+              "fast": 10,
+              "slow": 150,
+              "atr_len": 14,
+              "atr_mult": 3.0
+            },
+            "win_rate": 0.4444444444444444,
+            "profit_factor": 2.34039096466727,
+            "sharpe": 1.0433629404664984,
+            "max_drawdown": -0.5310762576064628,
+            "total_return": 11.437107798549164,
+            "trades": 9
+          }
+        ],
+        "reversion": [
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 65,
+              "hold": 3
+            },
+            "win_rate": 0.8888888888888888,
+            "profit_factor": 6.164594144895988,
+            "sharpe": -0.3187089090195977,
+            "max_drawdown": -0.4251891789460558,
+            "total_return": -0.35098995120467247,
+            "trades": 9
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 60,
+              "hold": 3
+            },
+            "win_rate": 0.8888888888888888,
+            "profit_factor": 6.164594144895988,
+            "sharpe": -0.3187089090195977,
+            "max_drawdown": -0.4251891789460558,
+            "total_return": -0.35098995120467247,
+            "trades": 9
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 70,
+              "hold": 3
+            },
+            "win_rate": 0.8888888888888888,
+            "profit_factor": 6.164594144895988,
+            "sharpe": -0.3187089090195977,
+            "max_drawdown": -0.4251891789460558,
+            "total_return": -0.35098995120467247,
+            "trades": 9
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 65,
+              "hold": 5
+            },
+            "win_rate": 0.875,
+            "profit_factor": 2.812222355004277,
+            "sharpe": -0.21785258517551728,
+            "max_drawdown": -0.4727697197138538,
+            "total_return": -0.3025603836885027,
+            "trades": 8
+          },
+          {
+            "name": "reversion",
+            "params": {
+              "length": 14,
+              "lower": 25,
+              "upper": 70,
+              "hold": 5
+            },
+            "win_rate": 0.875,
+            "profit_factor": 2.812222355004277,
+            "sharpe": -0.21785258517551728,
+            "max_drawdown": -0.4727697197138538,
+            "total_return": -0.3025603836885027,
+            "trades": 8
+          }
+        ],
+        "breakout": [
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 5
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 10,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 30,
+              "trail": 8
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 12
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          },
+          {
+            "name": "breakout",
+            "params": {
+              "lookback": 55,
+              "trail": 10
+            },
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "sharpe": 0.0,
+            "max_drawdown": 0.0,
+            "total_return": 0.0,
+            "trades": 0
+          }
+        ],
+        "bollinger": [
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 3.945379792391607,
+            "sharpe": -0.7098478115457745,
+            "max_drawdown": -0.5292920021775332,
+            "total_return": -0.46029785144552704,
+            "trades": 6
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": true,
+              "time_stop": 5
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 4.228636249054701,
+            "sharpe": -0.8613794344974953,
+            "max_drawdown": -0.5881481768492705,
+            "total_return": -0.5569628595373344,
+            "trades": 9
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 14,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 4.360519220276139,
+            "sharpe": -0.765921175950005,
+            "max_drawdown": -0.5604327263098952,
+            "total_return": -0.5271488019967769,
+            "trades": 9
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 2.5,
+              "exit_mid": false,
+              "time_stop": 5
+            },
+            "win_rate": 0.6666666666666666,
+            "profit_factor": 3.945379792391607,
+            "sharpe": -0.7098478115457745,
+            "max_drawdown": -0.5292920021775332,
+            "total_return": -0.46029785144552704,
+            "trades": 6
+          },
+          {
+            "name": "bollinger",
+            "params": {
+              "length": 10,
+              "std": 1.5,
+              "exit_mid": true,
+              "time_stop": 7
+            },
+            "win_rate": 0.6133333333333333,
+            "profit_factor": 1.0293028516715155,
+            "sharpe": -2.487531352866255,
+            "max_drawdown": -0.9975280496937753,
+            "total_return": -0.9974458609885961,
+            "trades": 75
+          }
+        ]
       },
       "ensemble": {
         "name": "ensemble",
+        "params": {},
         "win_rate": 0.0,
         "profit_factor": 0.0,
-        "sharpe": 0.7454043974260989,
-        "max_drawdown": -0.39491408652318144,
-        "total_return": 2.5404868960511657,
+        "sharpe": 0.8293758697142983,
+        "max_drawdown": -0.3273323966379843,
+        "total_return": 2.699527149157098,
         "trades": 0
       }
     }
